@@ -65,7 +65,7 @@ class EncryptionTest extends TestCase {
 	 * test if public key from one of the recipients is missing
 	 */
 	public function testEndUser1() {
-		$this->instance->begin('/foo/bar', 'user1', array(), array('users' => array('user1', 'user2', 'user3')));
+		$this->instance->begin('/foo/bar', 'user1', 'w', array(), array('users' => array('user1', 'user2', 'user3')));
 		$this->endTest();
 	}
 
@@ -75,7 +75,7 @@ class EncryptionTest extends TestCase {
 	 * @expectedException \OCA\Encryption\Exceptions\PublicKeyMissingException
 	 */
 	public function testEndUser2() {
-		$this->instance->begin('/foo/bar', 'user2', array(), array('users' => array('user1', 'user2', 'user3')));
+		$this->instance->begin('/foo/bar', 'user2', 'w', array(), array('users' => array('user1', 'user2', 'user3')));
 		$this->endTest();
 	}
 
